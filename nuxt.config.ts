@@ -42,6 +42,10 @@ const configuration: NuxtConfig = {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  generate: {
+    fallback: true
+  }
 }
 
 export default configuration
