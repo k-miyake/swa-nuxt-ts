@@ -121,6 +121,7 @@
       </div>
       <div>
         <NuxtLink to="/about">About page</NuxtLink>
+        <NuxtLink to="/posts/100">100番目の記事</NuxtLink>
       </div>
     </div>
   </div>
