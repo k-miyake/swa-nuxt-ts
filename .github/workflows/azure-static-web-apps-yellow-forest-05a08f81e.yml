@@ -32,6 +32,10 @@ jobs:
       # Build & Generate
       - run: npm run generate
 
+      # move SWA config
+      - name: move swa config
+        run: mv staticwebapp.config.json ./dist
+
       # Upload Nuxt artifact
       - uses: actions/upload-artifact@v2
         with:
