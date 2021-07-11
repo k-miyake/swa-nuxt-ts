@@ -44,8 +44,9 @@ const configuration: NuxtConfig = {
   build: {},
 
   generate: {
-    fallback: true
-  }
+    exclude: [/^\/posts/],
+    fallback: true,
+  },
 }
 
 export default configuration
