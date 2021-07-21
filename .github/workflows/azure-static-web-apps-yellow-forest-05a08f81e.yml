@@ -32,9 +32,15 @@ jobs:
       # Build & Generate
       - run: npm run generate
 
-      # move SWA config
+      # move SWA config for production
+      - name: move swa config
+        run: mv staticwebapp.config.production.json ./dist/staticwebapp.config.json
+        if: github.event_name == 'push'
+
+      # move SWA config for staging
       - name: move swa config
         run: mv staticwebapp.config.json ./dist
+        if: github.event_name == 'pull_request'
 
       # Upload Nuxt artifact
       - uses: actions/upload-artifact@v2
