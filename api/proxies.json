@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "PrismProxy": {
+            "matchCondition": {
+                "route": "/api/{*path}"
+            },
+            "backendUri": "http://prism-proxy.westus2.azurecontainer.io/{path}"
+        }
+    }
+}
