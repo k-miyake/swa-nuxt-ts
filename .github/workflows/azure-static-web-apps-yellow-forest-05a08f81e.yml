@@ -42,6 +42,12 @@ jobs:
           name: nuxtdist
           path: dist
 
+      # Upload Function App artifact
+      - uses: actions/upload-artifact@v2
+        with:
+          name: functionapp
+          path: api
+
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
@@ -53,6 +59,14 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: nuxtdist
+          path: dist
+
+      # Download Function App artifact
+      - name: Download function app
+        uses: actions/download-artifact@v2
+        with:
+          name: functionapp
+          path: api
 
       # Deploy to SWA
       - name: Deploy
@@ -62,7 +76,8 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_FOREST_05A08F81E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
-          app_location: '/'
+          app_location: '/dist'
+          api_location: '/api'
           skip_app_build: true
 
   close_pull_request_job:
