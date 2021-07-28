@@ -5,7 +5,7 @@
             "matchCondition": {
                 "route": "/api/{*path}"
             },
-            "backendUri": "http://prism-proxy.westus2.azurecontainer.io/{path}"
+            "backendUri": "https://func-node-ts.azurewebsites.net/api/{path}"
         }
     }
 }
