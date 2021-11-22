@@ -43,9 +43,14 @@ const configuration: NuxtConfig = {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  router: {
+    base: '/panel',
+  },
+
   generate: {
     exclude: [/^\/posts/],
     fallback: true,
+    dir: 'dist/panel',
   },
 }
 
